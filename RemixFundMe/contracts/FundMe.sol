@@ -24,7 +24,7 @@ contract FundMe {
     // `payable` permette di inviare ETH, GWEI, WEI
     function fund() public payable {
         // imposto minimo valore inviato
-        require(msg.value.getConversionRate() >= MINIMUM_USD, "Sei uno scorzo"); // inviati almeno 1 eth
+        require(msg.value.getConversionRate() >= MINIMUM_USD, "Sei uno scorzo"); // inviati almeno 50 USD
         funders.push(msg.sender);
         addrressToAmountFunded[msg.sender] += msg.value;
     }
