@@ -13,7 +13,6 @@ contract SimpleStorage {
 
     uint256 favouriteNumber;
 
-    // `virtual` significa che la funzione può subire override
     function store(uint256 _favouriteNumber) public virtual {
         favouriteNumber = _favouriteNumber;
     }
