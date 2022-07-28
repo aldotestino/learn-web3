@@ -11,6 +11,11 @@ export const networkConfig: NetworkConfig = {
     chainId: 4,
     ethUsdPriceFeed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e',
     blockConfirmations: 6
+  },
+  hardhat: {
+    chainId: 31337,
+    ethUsdPriceFeed: '0x',
+    blockConfirmations: 1
   }
 };
 

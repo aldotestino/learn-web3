@@ -1,6 +1,8 @@
 import { HardhatUserConfig } from 'hardhat/config';
+import '@nomiclabs/hardhat-ethers';
 import '@nomicfoundation/hardhat-toolbox';
 import '@nomiclabs/hardhat-etherscan';
+import 'hardhat-gas-reporter';
 import 'solidity-coverage';
 import 'hardhat-deploy';
 import 'dotenv/config';
@@ -21,7 +23,7 @@ const config: HardhatUserConfig = {
     apiKey: process.env.ETHERSCAN_API_KEY
   },
   gasReporter: {
-    enabled: false,
+    enabled: true
   },
   namedAccounts: {
     deployer: {
