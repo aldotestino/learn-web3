@@ -26,7 +26,7 @@ describe('FundMe', async () => {
 
   describe('constructor', async () => {
     it('sets the aggregator address correctly', async () => {
-      const response = await fundMe.s_priceFeed();
+      const response = await fundMe.getPriceFeed();
       assert.equal(response, mockV3Aggregator.address);
     });
   });
@@ -38,14 +38,14 @@ describe('FundMe', async () => {
 
     it('Updates the amount funded data structure', async () => {
       await fundMe.fund({ value: sendValue });
-      const response = await fundMe.s_addrressToAmountFunded(deployer);
+      const response = await fundMe.getAddressToAmountFunded(deployer);
 
       assert.equal(response.toString(), sendValue.toString());
     });
 
     it('adds funder to array of funders', async () => {
       await fundMe.fund({ value: sendValue });
-      const funder = await fundMe.s_funders(0);
+      const funder = await fundMe.getFunder(0);
 
       assert.equal(funder, deployer);
     });
@@ -89,10 +89,10 @@ describe('FundMe', async () => {
       const { gasUsed, effectiveGasPrice } = await transactionResponse.wait(1);
       const gasCost = gasUsed.mul(effectiveGasPrice);
 
-      await expect(fundMe.s_funders(0)).to.be.reverted;
+      await expect(fundMe.getFunder(0)).to.be.reverted;
 
       accounts.forEach(async account => {
-        assert.equal(await (await fundMe.s_addrressToAmountFunded(account.address)).toString(), '0');
+        assert.equal(await (await fundMe.getAddressToAmountFunded(account.address)).toString(), '0');
       });
     });
 
@@ -119,10 +119,10 @@ describe('FundMe', async () => {
       const { gasUsed, effectiveGasPrice } = await transactionResponse.wait(1);
       const gasCost = gasUsed.mul(effectiveGasPrice);
 
-      await expect(fundMe.s_funders(0)).to.be.reverted;
+      await expect(fundMe.getFunder(0)).to.be.reverted;
 
       accounts.forEach(async account => {
-        assert.equal(await (await fundMe.s_addrressToAmountFunded(account.address)).toString(), '0');
+        assert.equal(await (await fundMe.getAddressToAmountFunded(account.address)).toString(), '0');
       });
     });
   });
