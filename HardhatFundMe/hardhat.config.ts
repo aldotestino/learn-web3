@@ -14,7 +14,14 @@ const config: HardhatUserConfig = {
       url: process.env.RINKEBY_RPC_URL,
       accounts: [process.env.PRIVATE_KEY!],
       chainId: 4
+    },
+    localhost: {
+      url: 'http://127.0.0.1:8545/',
+      chainId: 31337,
     }
+  },
+  mocha: {
+    timeout: 100000000
   },
   solidity: {
     compilers: [{ version: '0.8.9', }, { version: '0.6.6' }]

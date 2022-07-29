@@ -16,6 +16,11 @@ export const networkConfig: NetworkConfig = {
     chainId: 31337,
     ethUsdPriceFeed: '0x',
     blockConfirmations: 1
+  },
+  localhost: {
+    chainId: 31337,
+    ethUsdPriceFeed: '0x',
+    blockConfirmations: 1
   }
 };
 

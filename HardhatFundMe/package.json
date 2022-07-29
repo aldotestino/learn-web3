@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "hardhat test",
+    "test:unit": "hardhat test",
+    "test:staging": "hardhat test --network rinkeby",
     "deploy:hardhat": "hardhat deploy --network hardhat",
+    "deploy:localhost": "hardhat deploy --network localhost",
     "deploy:rinkeby": "hardhat deploy --network rinkeby",
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
-    "run:harhat": "hardhat run scripts/deploy.ts --network hardhat",
-    "run:rinkeby": "hardhat run scripts/deploy.ts --network rinkeby"
+    "node": "hardhat node",
+    "fund:hardhat": "hardhat run scripts/fund.ts --network hardhat",
+    "fund:localhost": "hardhat run scripts/fund.ts --network localhost",
+    "fund:rinkeby": "hardhat run scripts/fund.ts --network rinkeby",
+    "withdraw:hardhat": "hardhat run scripts/withdraw.ts --network hardhat",
+    "withdraw:localhost": "hardhat run scripts/withdraw.ts --network localhost",
+    "withdraw:rinkeby": "hardhat run scripts/withdraw.ts --network rinkeby"
   },
   "keywords": [],
   "author": "",
