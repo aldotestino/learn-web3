@@ -15,6 +15,10 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 31337,
     },
+    localhost: {
+      url: 'http://127.0.0.1:8545/',
+      chainId: 31337,
+    },
     rinkeby: {
       chainId: 4,
       url: process.env.RINKEBY_RPC_URL,

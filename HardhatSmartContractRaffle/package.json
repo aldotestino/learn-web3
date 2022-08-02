@@ -7,7 +7,9 @@
     "test:unit": "hardhat test",
     "test:staging": "hardhat test --network rinkeby",
     "test:unit-grep": "hardhat test --grep",
-    "coverage": "hardhat coverage"
+    "coverage": "hardhat coverage",
+    "node": "hardhat node",
+    "pick-winner:localhost": "hardhat run ./scripts/mockOffchain.ts --network localhost"
   },
   "devDependencies": {
     "@chainlink/contracts": "^0.4.0",

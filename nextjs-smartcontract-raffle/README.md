@@ -1,0 +1,1 @@
+To pick a winner on localhost you must run `npm run pick-winner:localhost` from `hardhat-smartcontract-raffle` folder.
