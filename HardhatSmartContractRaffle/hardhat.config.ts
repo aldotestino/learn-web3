@@ -24,6 +24,9 @@ const config: HardhatUserConfig = {
   gasReporter: {
     enabled: false
   },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY
+  },
   solidity: '0.8.8',
   namedAccounts: {
     deployer: {

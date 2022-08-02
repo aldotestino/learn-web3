@@ -142,7 +142,7 @@ import { BigNumber } from 'ethers';
       });
     });
 
-    describe('fulfill random words', () => {
+    describe('fulfillRandomWords', () => {
       beforeEach(async () => {
         await raffle.enterRaffle({ value: raffleEntranceFee });
 

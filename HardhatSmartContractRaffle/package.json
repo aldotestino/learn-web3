@@ -2,8 +2,10 @@
   "scripts": {
     "compile": "hardhat compile",
     "deploy:hardhat": "hardhat deploy",
+    "deploy:rinkeby": "hardhat deploy --network rinkeby",
     "clean": "hardhat clean",
     "test:unit": "hardhat test",
+    "test:staging": "hardhat test --network rinkeby",
     "test:unit-grep": "hardhat test --grep",
     "coverage": "hardhat coverage"
   },
