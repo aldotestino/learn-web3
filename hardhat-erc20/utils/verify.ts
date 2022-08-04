@@ -1,11 +1,12 @@
 import { run } from 'hardhat';
 
-export default async (contractAddress: string, args?: any[]) => {
+export default async (contractAddress: string, args?: any[], contractPath?: string) => {
   console.log('🧐 Verifying contract...');
   try {
     await run('verify:verify', {
       address: contractAddress,
-      constructorArguments: args
+      constructorArguments: args,
+      contract: contractPath,
     });
     console.log('✅ Contract verified!');
   } catch (e: any) {

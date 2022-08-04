@@ -1,4 +1,4 @@
-import { ethers, network } from 'hardhat';
+import { network } from 'hardhat';
 import 'dotenv/config';
 import { DeployFunction } from 'hardhat-deploy/dist/types';
 import verify from '../utils/verify';
@@ -22,7 +22,7 @@ const deployToken: DeployFunction = async ({ getNamedAccounts, deployments }) =>
     !developmentChains.includes(network.name) &&
     process.env.ETHERSCAN_API_KEY
   ) {
-    await verify(ourToken.address, [INITIAL_SUPPLY]);
+    await verify(ourToken.address, [INITIAL_SUPPLY], 'contracts/OurToken.sol:OurToken');
   }
 };
 
