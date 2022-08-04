@@ -4,7 +4,7 @@ import RaffleEntrance from '../components/RaffleEntrance';
 
 function Home() {
   return (
-    <div>
+    <div className='px-10'>
       <Head>
         <title>Crypto Raffle</title>
         <meta name="description" content="Win $$ by joining this raffle!" />

@@ -3,7 +3,8 @@ import { useMoralis, useWeb3Contract } from 'react-moralis';
 import { contractAddresses, abi  } from '../constants';
 import { BigNumber, ContractTransaction, ethers } from 'ethers';
 import { useNotification } from '@web3uikit/core';
-import { Bell } from '@web3uikit/icons';
+import { Bell, Eth } from '@web3uikit/icons';
+import Button from './Button';
 
 function RaffleEntrance() {
 
@@ -55,7 +56,7 @@ function RaffleEntrance() {
     }
   }, [isWeb3Enabled]);
 
-  const { runContractFunction: enterRaffle } = useWeb3Contract({
+  const { runContractFunction: enterRaffle, isLoading, isFetching } = useWeb3Contract({
     abi,
     contractAddress: raffleAddress,
     functionName: 'enterRaffle',
@@ -81,24 +82,29 @@ function RaffleEntrance() {
 
   if(!raffleAddress) {
     return (
-      <div>No Raffle Address detected!</div>
+      <div className='flex justify-center py-10'>
+        <p className='text-xl'>No Raffle Address detected!</p>
+      </div>
     );
   }
 
   return (
-    <div>
-      <div>
-        <button onClick={async () => {
+    <div className='py-10 px-5'>
+      <Button
+        disabled={isLoading || isFetching}
+        isLoading={isLoading || isFetching}
+        onClick={async () => {
           await enterRaffle({
             onSuccess: handleSuccess,
             onError: (error) => console.log(error)
           });  
         }}>
           Enter Raffle!
-        </button>
-        <p>Entrance Fee: {ethers.utils.formatUnits(entranceFee, 'ether')} ETH</p>
-        <p>Number of players: {numPlayers}</p>
-        <p>Recent winner: {recentWinner}</p>
+      </Button>
+      <div className='mt-4'>
+        <p>Entrance Fee: <span className='text-[#2e7daf] inline-flex items-center'>{ethers.utils.formatUnits(entranceFee, 'ether')} ETH <Eth /></span></p>
+        <p>Number of players: <span className='text-[#2e7daf]'>{numPlayers}</span></p>
+        <p>Recent winner: <a className='text-[#2e7daf] hover:underline hover:cursor-pointer'>{recentWinner}</a></p>
       </div>
     </div>
   );

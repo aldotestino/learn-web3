@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { MoralisProvider } from 'react-moralis';
 import { NotificationProvider } from '@web3uikit/core';
+import '../styles/globals.css';
 
 function App({ Component, pageProps }: AppProps) {
   return (
