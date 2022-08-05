@@ -81,6 +81,7 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
         bytes memory /*checkData*/
     )
         public
+        view
         override
         returns (
             bool upkeepNeeded,
@@ -92,6 +93,7 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
         bool hasPlayers = (s_players.length > 0);
         bool hasBalance = (address(this).balance > 0);
         upkeepNeeded = (isOpen && timePassed && hasPlayers && hasBalance); // dichiarato nella firma del metodo
+        return (upkeepNeeded, "0x0");
     }
 
     function performUpkeep(
@@ -126,8 +128,8 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
         s_recentWinner = recentWinner;
 
         s_players = new address payable[](0);
-        s_lastTimeStamp = block.timestamp;
         s_raffleState = RaffleState.OPEN;
+        s_lastTimeStamp = block.timestamp;
 
         (bool success, ) = recentWinner.call{value: address(this).balance}("");
         if (!success) {
