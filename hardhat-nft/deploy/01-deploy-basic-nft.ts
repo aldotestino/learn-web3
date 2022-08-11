@@ -25,5 +25,5 @@ const deployNft: DeployFunction = async ({ getNamedAccounts, deployments }) => {
   }
 };
 
-deployNft.tags = ['all', 'basicNft', 'main'];
+deployNft.tags = ['all', 'basicnft', 'main'];
 export default deployNft; 

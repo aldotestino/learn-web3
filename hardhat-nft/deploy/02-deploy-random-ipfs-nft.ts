@@ -10,7 +10,7 @@ const imagesLocation = './images/randomNft';
 
 const VRF_SUB_FUND_AMOUNT = ethers.utils.parseEther('30');
 
-const deployRaffle: DeployFunction = async ({ getNamedAccounts, deployments }) => {
+const deployNft: DeployFunction = async ({ getNamedAccounts, deployments }) => {
   const { deploy, log, get } = deployments;
   const { deployer } = await getNamedAccounts();
 
@@ -69,8 +69,8 @@ const deployRaffle: DeployFunction = async ({ getNamedAccounts, deployments }) =
   log('--------------------------------------------');
 };
 
-deployRaffle.tags = ['all', 'randomipfs', 'main'];
-export default deployRaffle;
+deployNft.tags = ['all', 'randomipfs', 'main'];
+export default deployNft;
 
 async function hendleTokenUris() {
   const tokenUris: string[] = [];
