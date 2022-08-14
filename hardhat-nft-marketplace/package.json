@@ -47,6 +47,8 @@
     "format": "prettier --write .",
     "typechain": "yarn hardhat typechain",
     "run-node": "yarn hardhat node",
-    "script:mint-and-list": "yarn hardhat run ./scripts/mint-and-list.ts --network localhost"
+    "script:mint-and-list": "yarn hardhat run ./scripts/mint-and-list.ts --network localhost",
+    "script:cancel-item": "yarn hardhat run ./scripts/cancel-item.ts --network localhost",
+    "script:buy-item": "yarn hardhat run ./scripts/buy-item.ts --network localhost"
   }
 }

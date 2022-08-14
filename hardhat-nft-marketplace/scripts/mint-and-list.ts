@@ -1,5 +1,6 @@
-import { deployments, ethers } from 'hardhat';
+import { deployments, ethers, network } from 'hardhat';
 import { BasicNft, NftMarketplace } from '../typechain-types';
+import { moveBlocks } from '../utils/move-blocks';
 
 const PRICE = ethers.utils.parseEther('0.01');
 
@@ -25,6 +26,10 @@ async function mintAndList() {
   const tx = await nftMarketplace.listItem(basicNft.address, tokenId, PRICE);
   await tx.wait(1);
   console.log('✅ NFT succesfully listed!');
+
+  if (network.config.chainId === 31337) {
+    await moveBlocks(1, 1000);
+  }
 }
 
 mintAndList()
